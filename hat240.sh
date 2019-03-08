@@ -58,9 +58,9 @@ for i in `seq 1 $test_count`; do
     #displays progress bar
     n=$(((i)*bar_length / test_count))
     printf "\r[%-${bar_length}s] #%d" "${bar:0:n}" $((i))
-
+    
     mkdir "failure$tests_failed"
-
+    printf "Score less than 100 found"
     # move into test failed and copy test file
     cd "failure$tests_failed"
 
