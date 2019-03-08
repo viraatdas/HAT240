@@ -60,7 +60,6 @@ for i in `seq 1 $test_count`; do
     printf "\r[%-${bar_length}s] #%d" "${bar:0:n}" $((i))
     
     mkdir "failure$tests_failed"
-    printf "Score less than 100 found"
     # move into test failed and copy test file
     cd "failure$tests_failed"
 
@@ -80,6 +79,9 @@ for i in `seq 1 $test_count`; do
         fi
 
         tests_failed=$((tests_failed + 1))
+        if [tests_failed > 0]; then
+            printf "Score less than 100 found"
+        fi
 	cd ..
     fi
 done
